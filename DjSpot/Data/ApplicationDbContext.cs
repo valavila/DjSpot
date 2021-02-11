@@ -12,5 +12,6 @@ namespace DjSpot.Data
             : base(options)
         {
         }
+
     }
 }
