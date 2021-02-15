@@ -32,6 +32,7 @@ namespace DjSpot
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -66,6 +67,14 @@ namespace DjSpot
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            // Create roles here
+            IServiceScope serviceProvider = app.ApplicationServices
+                                     .GetRequiredService<IServiceProvider>()
+                                     .CreateScope();
+
+            IdentityHelper.CreateRoles(serviceProvider.ServiceProvider, IdentityHelper.Customer, IdentityHelper.Dj, IdentityHelper.Admin).Wait();
         }
     }
 }
+
