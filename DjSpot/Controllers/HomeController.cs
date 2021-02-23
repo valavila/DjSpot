@@ -6,20 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DjSpot.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Hosting;
+using DjSpot.Data;
 
 namespace DjSpot.Controllers
 {
     public class HomeController : Controller
     {
+        private UserManager<ApplicationUser> _userManager;
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly ApplicationDbContext DBcontext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
+            _userManager = userManager;
             _logger = logger;
+            DBcontext = context;
+            webHostEnvironment = hostEnvironment;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
+            ApplicationUser currentUser = await _userManager.GetUserAsync(User);
             return View();
         }
 

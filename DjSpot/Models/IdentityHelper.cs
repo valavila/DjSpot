@@ -26,5 +26,17 @@ namespace DjSpot.Models
                 }
             }
         }
+
+        public static void SetIdentityOptions(IdentityOptions options)
+        {
+            options.User.RequireUniqueEmail = true;
+
+            //SET PASSWORD STRENGTH
+            options.Password.RequiredLength = 6;
+            options.Password.RequireDigit = false;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireLowercase = false;
+        }
     }
 }
