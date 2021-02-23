@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace DjSpot.Models
 {
+    public enum userType
+    {
+        [Display(Name = "Customer")]
+        customer,
+        [Display(Name = "Dj")]
+        dj
+    }
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
@@ -20,5 +27,8 @@ namespace DjSpot.Models
 
         public bool isDj { get; set; }
         public bool isCustomer { get; set; }
+       
+        [EnumDataType(typeof(userType))]
+        public userType UserType { get; set; } // customer = 0, dj = 1
     }
 }
