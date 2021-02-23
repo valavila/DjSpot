@@ -1,5 +1,6 @@
 ﻿@page
-@model RegisterModel
+@model RegisterModel 
+
 @{
     ViewData["Title"] = "Register";
 }
@@ -87,17 +88,16 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label for="clientType">Dj or Customer?:</label>
+                                
+                                <select asp-for="Input.UserType" asp-items="@(Html.GetEnumSelectList<DjSpot.Models.userType>())" class="form-control">
+                                    <option selected="selected" value="">Dj or Customer?:</option>
+                                </select>
 
-                                @*<select name="type" id="type">
-                                    <option value="Dj">Dj</option>
-                                    <option value="customer">customer</option>
-                                </select>*@
-                                
-                                <input placeholder="Dj" asp-for="Input.isDj" class="form-control" />
-                                
-                                <input placeholder="Customer" asp-for="Input.isCustomer" class="form-control" />
-                                
+
+
+
+
+
                             </div>
 
                             <div class="col-md-12">

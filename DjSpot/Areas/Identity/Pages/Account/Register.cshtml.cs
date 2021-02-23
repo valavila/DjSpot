@@ -79,19 +79,22 @@ namespace DjSpot.Areas.Identity.Pages.Account
             public bool isDj { get; set; }
 
             public bool isCustomer { get; set; }
+            
+            [EnumDataType(typeof(userType))]
+            public userType UserType { get; set; } // customer = 0, dj = 1
         }
     
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+           // ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser {
@@ -101,9 +104,10 @@ namespace DjSpot.Areas.Identity.Pages.Account
                     LastName = Input.LastName,
                     DOB = Input.DOB,
                     Bio = Input.Bio,
-                    isDj = Input.isDj,
-                    isCustomer = Input.isCustomer
-
+                    //isDj = Input.isDj,
+                    //isCustomer = Input.isCustomer,
+                    UserType = Input.UserType
+                   
 
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
