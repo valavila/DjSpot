@@ -26,10 +26,47 @@ namespace DjSpot.Controllers
             DBcontext = context;
             webHostEnvironment = hostEnvironment;
         }
-
         public async Task<IActionResult> IndexAsync()
         {
+            //Gets current user
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
+
+            if(currentUser != null) 
+            {
+                await SetAsDjOrCustomer(currentUser);
+            }
+            
+            return View();
+        }
+
+        /// <summary>
+        /// Sets up current user field for isDj or isCustomer, depending on what option they chose when registering
+        /// </summary>
+        /// <param name="currentUser">Current logged in user</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> SetAsDjOrCustomer(ApplicationUser currentUser)
+        {
+            //ApplicationUser currentUser = await _userManager.GetUserAsync(User);
+            if (ModelState.IsValid)
+            {
+                if (currentUser.UserType == userType.customer)
+                {
+                    currentUser.isCustomer = true;
+                    currentUser.isDj = false;
+
+                }
+                else if (currentUser.UserType == userType.dj)
+                {
+                    currentUser.isCustomer = false;
+                    currentUser.isDj = true;
+                }
+                
+                DBcontext.Update(currentUser);
+                await DBcontext.SaveChangesAsync();
+                //return RedirectToAction("In");
+            }
+           
             return View();
         }
 
