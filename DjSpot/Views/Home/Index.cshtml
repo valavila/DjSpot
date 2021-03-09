@@ -4,32 +4,34 @@
 }
 
 <div class="text-center">
-    <div><img src="~/images/DJSPOT.jpg" width="1423" height="600" /></div>
-    
+    <div style="text-align: center;">
+        <img src="~/images/d2.jpg" style="max-width: 100%; height: auto;"  />
+    </div>
     <h1 class="display-4">Djs!</h1>
-    
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.UserName)</th>
-                <th>@Html.DisplayNameFor(model => model.Bio)</th>
-                @*<th>Image</th>
-                <th>@Html.DisplayNameFor(model => model.)</th>
-                <th>@Html.DisplayNameFor(model => model.Price)</th>*@
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (ApplicationUser user in Model)
-            {
-                @if (user.isDj)
-                {
+    <div class="djTable">
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>@user.UserName</td>
-                    <td>@user.Bio</td>
-                    
+                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Bio)</th>
+                    @*<th>Image</th>
+                        <th>@Html.DisplayNameFor(model => model.)</th>
+                        <th>@Html.DisplayNameFor(model => model.Price)</th>*@
                 </tr>
+            </thead>
+            <tbody>
+                @foreach (ApplicationUser user in Model)
+                {
+                    @if (user.isDj)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>@user.Bio</td>
+
+                        </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>

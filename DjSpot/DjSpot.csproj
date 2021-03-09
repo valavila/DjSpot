@@ -21,4 +21,8 @@
     <EmbeddedResource Include="wwwroot\images\DJSPOT.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\images\d2.jpg" />
+  </ItemGroup>
+
 </Project>

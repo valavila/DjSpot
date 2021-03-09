@@ -76,6 +76,10 @@ body {
     margin-bottom: 60px;
     background-color: #BDD7D8;
 }
+.homeImage{
+    max-width: 100%;
+    height: auto;
+}
 .footer {
   position: absolute;
   bottom: 0;
