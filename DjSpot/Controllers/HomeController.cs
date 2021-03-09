@@ -28,15 +28,19 @@ namespace DjSpot.Controllers
         }
         public async Task<IActionResult> IndexAsync()
         {
-            //Gets current user
+            // Gets all registered users - to send to view
+            var user = _userManager.Users;
+
+            // Gets current user
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
 
-            if(currentUser != null) 
+            // Send current user to get assigned as Dj or customer
+            if (currentUser != null) 
             {
                 await SetAsDjOrCustomer(currentUser);
             }
-            
-            return View();
+
+            return View(user);
         }
 
         /// <summary>
@@ -54,17 +58,20 @@ namespace DjSpot.Controllers
                 {
                     currentUser.isCustomer = true;
                     currentUser.isDj = false;
+                    await _userManager.AddToRoleAsync(currentUser, "Customer");
 
                 }
                 else if (currentUser.UserType == userType.dj)
                 {
                     currentUser.isCustomer = false;
                     currentUser.isDj = true;
+                    await _userManager.AddToRoleAsync(currentUser, "Dj");
                 }
                 
+                
+
                 DBcontext.Update(currentUser);
                 await DBcontext.SaveChangesAsync();
-                //return RedirectToAction("In");
             }
            
             return View();

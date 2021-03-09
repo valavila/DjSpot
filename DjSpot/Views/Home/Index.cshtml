@@ -1,8 +1,35 @@
-﻿@{
+﻿@model IEnumerable<ApplicationUser>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div><img src="~/images/DJSPOT.jpg" width="1423" height="600" /></div>
+    
+    <h1 class="display-4">Djs!</h1>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                <th>@Html.DisplayNameFor(model => model.Bio)</th>
+                @*<th>Image</th>
+                <th>@Html.DisplayNameFor(model => model.)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ApplicationUser user in Model)
+            {
+                @if (user.isDj)
+                {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Bio</td>
+                    
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
 </div>
