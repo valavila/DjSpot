@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\header1.png" />
+    <Content Remove="wwwroot\images\header2.jpg" />
+    <Content Remove="wwwroot\images\header3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.11" />
@@ -23,6 +29,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\images\d2.jpg" />
+    <EmbeddedResource Include="wwwroot\images\header1.png" />
+    <EmbeddedResource Include="wwwroot\images\header2.jpg" />
+    <EmbeddedResource Include="wwwroot\images\header3.jpg" />
   </ItemGroup>
 
 </Project>
