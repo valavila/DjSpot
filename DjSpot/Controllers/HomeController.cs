@@ -28,14 +28,19 @@ namespace DjSpot.Controllers
         }
         public async Task<IActionResult> IndexAsync()
         {
-            //Gets current user
+            // Gets all registered users - to send to view
+            var user = _userManager.Users;
+
+            // Gets current user
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
-            
+
+            // Send current user to get assigned as Dj or customer
             if (currentUser != null) 
             {
                 await SetAsDjOrCustomer(currentUser);
             }
-            return View();
+
+            return View(user);
         }
 
         /// <summary>
