@@ -7,27 +7,34 @@ a.navbar-brand {
     word-break: break-all;
     background-color: blueviolet;
     color: white;
+    font-family: 'Nixie One', cursive;
 }
 .navbar {
     background-color: blueviolet;
 }
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
+    font-family: 'Nixie One', cursive;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: blueviolet;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: blueviolet;
+    border-color: #1861ac;
+    font-family: 'Nixie One', cursive;
 }
 
 label, h4 {
     color: blueviolet;
+    font-family: 'Nixie One', cursive;
 }
 
 .card-body {
     background-color: white;
+    font-family: 'Nixie One', cursive;
+    font-size: 1.5em;
+    
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -39,6 +46,7 @@ label, h4 {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
+    font-family: 'Nixie One', cursive;
     font-size: 14px;
     background-color: white;
 }
@@ -90,13 +98,16 @@ body {
 }
 
 .userCard{
-    background-color: #24d2fe;
+    background-color: #74e3fc;
 }
 
 hr{
     color: black;
 }
 
+.userInfo{
+    color: white
+}
 .check {
     margin-top: 50px;
     padding: 40px;
