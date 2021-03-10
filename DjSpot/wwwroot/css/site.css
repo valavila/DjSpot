@@ -5,10 +5,11 @@ a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-    background-color: #BDD7D8;
+    background-color: blueviolet;
+    color: white;
 }
 .navbar {
-    background-color: #BDD7D8;
+    background-color: blueviolet;
 }
 /* Provide sufficient contrast against white background */
 a {
@@ -17,21 +18,21 @@ a {
 
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
+  background-color: blueviolet;
   border-color: #1861ac;
 }
 
 label, h4 {
-    color: darkblue;
+    color: blueviolet;
 }
 
 .card-body {
-    background-color: #87dbdb;
+    background-color: white;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #BDD7D8;
+    color: white;
+    background-color: blueviolet;
     border-color: #1861ac;
 }
 
@@ -39,7 +40,7 @@ label, h4 {
 -------------------------------------------------- */
 html {
     font-size: 14px;
-    background-color: #BDD7D8;
+    background-color: white;
 }
 @media (min-width: 768px) {
   html {
@@ -74,7 +75,11 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-color: #BDD7D8;
+    background-color: white;
+}
+.homeImage{
+    max-width: 100%;
+    height: auto;
 }
 .footer {
   position: absolute;
@@ -82,4 +87,18 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.userCard{
+    background-color: #24d2fe;
+}
+
+hr{
+    color: black;
+}
+
+.check {
+    margin-top: 50px;
+    padding: 40px;
+    font-family: 'Nixie One', cursive;
 }
