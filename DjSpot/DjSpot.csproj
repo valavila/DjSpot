@@ -9,6 +9,7 @@
     <Content Remove="wwwroot\images\header1.png" />
     <Content Remove="wwwroot\images\header2.jpg" />
     <Content Remove="wwwroot\images\header3.jpg" />
+    <Content Remove="wwwroot\images\header4.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,7 @@
     <EmbeddedResource Include="wwwroot\images\header1.png" />
     <EmbeddedResource Include="wwwroot\images\header2.jpg" />
     <EmbeddedResource Include="wwwroot\images\header3.jpg" />
+    <EmbeddedResource Include="wwwroot\images\header4.jpg" />
   </ItemGroup>
 
 </Project>
