@@ -30,5 +30,7 @@ namespace DjSpot.Models
        
         [EnumDataType(typeof(userType))]
         public userType UserType { get; set; } // customer = 0, dj = 1
+
+
     }
 }
