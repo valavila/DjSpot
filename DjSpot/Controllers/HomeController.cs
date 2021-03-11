@@ -82,9 +82,30 @@ namespace DjSpot.Controllers
             return View();
         }
 
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
+            ApplicationUser currentUser = await _userManager.GetUserAsync(User);
+
+            ViewBag.UserName = currentUser.UserName;
+            ViewBag.Email = currentUser.Email;
+            ViewBag.Phone = currentUser.PhoneNumber;
+            ViewBag.AboutMe = currentUser.Bio;
+            ViewBag.Name = currentUser.FirstName + " " + currentUser.LastName;
+
             return View();
+        }
+
+        public async Task<IActionResult> UpdatePhoneAsync(string phoneNumber)
+        {
+            ApplicationUser currentUser = await _userManager.GetUserAsync(User);
+
+            currentUser.PhoneNumber = phoneNumber;
+
+            DBcontext.Update(currentUser);
+            await DBcontext.SaveChangesAsync();
+
+            return View("Profile");
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
