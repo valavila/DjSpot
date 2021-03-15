@@ -95,6 +95,19 @@ namespace DjSpot.Controllers
             return View();
         }
 
+        public async Task<IActionResult> DjPageAsync(string id)
+        {
+            ApplicationUser selectedDj = await _userManager.FindByIdAsync(id);
+
+            ViewBag.DjName = selectedDj.UserName;
+            ViewBag.DjEmail = selectedDj.Email;
+            ViewBag.DJPhone = selectedDj.PhoneNumber;
+            ViewBag.DjAboutMe = selectedDj.Bio;
+            ViewBag.DjName = selectedDj.FirstName + " " + selectedDj.LastName;
+
+            return View(selectedDj);
+        }
+
         public async Task<IActionResult> UpdatePhoneAsync(string phoneNumber)
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);

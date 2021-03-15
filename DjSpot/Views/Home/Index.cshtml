@@ -24,7 +24,7 @@
                                 <img src="~/images/header2.jpg" alt="Cover" class="card-img-top">
                                 <div class="userCard card-body text-center">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style="width:100px;margin-top:-65px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
-                                    <a class="card-title" asp-area="" asp-controller="Home" asp-action="Profile">@user.UserName</a>
+                                    <a class="card-title" asp-area="" asp-controller="Home" asp-action="DjPage" asp-route-id="@user.Id">@user.UserName</a>
                                     <p class="text-secondary mb-1">@user.Bio</p>
                                     <p class="text-muted font-size-sm">@user.Email</p>
                                       
