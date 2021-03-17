@@ -86,25 +86,20 @@ namespace DjSpot.Controllers
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
 
-            ViewBag.UserName = currentUser.UserName;
-            ViewBag.Email = currentUser.Email;
-            ViewBag.Phone = currentUser.PhoneNumber;
-            ViewBag.AboutMe = currentUser.Bio;
-            ViewBag.Name = currentUser.FirstName + " " + currentUser.LastName;
-
-            return View();
+            
+            return View(currentUser);
         }
-
+        /// <summary>
+        /// Routes user to Dj profile page. Takes in user id from the server
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> DjPageAsync(string id)
         {
+            //Find Dj from passed in id
             ApplicationUser selectedDj = await _userManager.FindByIdAsync(id);
-
-            ViewBag.DjName = selectedDj.UserName;
-            ViewBag.DjEmail = selectedDj.Email;
-            ViewBag.DJPhone = selectedDj.PhoneNumber;
-            ViewBag.DjAboutMe = selectedDj.Bio;
-            ViewBag.DjName = selectedDj.FirstName + " " + selectedDj.LastName;
-
+            
+            //Pass Dj to view
             return View(selectedDj);
         }
 
