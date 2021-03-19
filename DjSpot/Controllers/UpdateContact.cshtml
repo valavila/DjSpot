@@ -1,0 +1,31 @@
+﻿@model DjSpot.Models.ApplicationUser
+
+<div class="row">
+    <div class="col-md-6">
+        <label>First Name</label>
+        <div class="form-group">
+            <input asp-for="InputFirstName" class="form-control" />
+        </div>
+        <label>Last Name</label>
+        <div class="form-group">
+            <input asp-for="LastName" class="form-control" />
+
+        </div>
+
+        <label>Email</label>
+        <div class="form-group">
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <label>Phone Number</label>
+        <div class="form-group">
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="SCUrl" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+</div>

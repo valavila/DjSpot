@@ -82,6 +82,10 @@ namespace DjSpot.Controllers
             return View();
         }
 
+        /// <summary>
+        /// User Profile page
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Profile()
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
@@ -89,6 +93,7 @@ namespace DjSpot.Controllers
             
             return View(currentUser);
         }
+
         /// <summary>
         /// Routes user to Dj profile page. Takes in user id from the server
         /// </summary>
@@ -98,24 +103,28 @@ namespace DjSpot.Controllers
         {
             //Find Dj from passed in id
             ApplicationUser selectedDj = await _userManager.FindByIdAsync(id);
+
+            //selectedDj.SCUrl.
             
             //Pass Dj to view
             return View(selectedDj);
         }
 
-        public async Task<IActionResult> UpdatePhoneAsync(string phoneNumber)
+        public async Task<IActionResult> UpdateContactAsync(string phoneNumber)
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
+            ApplicationUser model = new ApplicationUser();
 
-            currentUser.PhoneNumber = phoneNumber;
+            return View(model);
+            
 
-            DBcontext.Update(currentUser);
-            await DBcontext.SaveChangesAsync();
+            //DBcontext.Update(currentUser);
+            //await DBcontext.SaveChangesAsync();
 
-            return View("Profile");
+            //return View("Profile");
 
         }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

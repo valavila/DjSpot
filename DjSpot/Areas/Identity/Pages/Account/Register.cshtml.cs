@@ -79,16 +79,22 @@ namespace DjSpot.Areas.Identity.Pages.Account
             public bool isDj { get; set; }
 
             public bool isCustomer { get; set; }
-            
+            public string City { get; set; }
+
+            public string State { get; set; }
+
             [EnumDataType(typeof(userType))]
             public userType UserType { get; set; } // customer = 0, dj = 1
-        }
-    
 
-        public async Task OnGetAsync(string returnUrl = null)
+            [DataType(DataType.Html)]
+            public string SCUrl { get; set; }
+        }
+
+
+        public void OnGet(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
-           // ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            // ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -106,7 +112,10 @@ namespace DjSpot.Areas.Identity.Pages.Account
                     Bio = Input.Bio,
                     //isDj = Input.isDj,
                     //isCustomer = Input.isCustomer,
-                    UserType = Input.UserType
+                    UserType = Input.UserType,
+                    SCUrl = Input.SCUrl,
+                    City = Input.City,
+                    State = Input.State
                    
 
                 };

@@ -31,6 +31,15 @@ namespace DjSpot.Models
         [EnumDataType(typeof(userType))]
         public userType UserType { get; set; } // customer = 0, dj = 1
 
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        [DataType(DataType.PostalCode)]
+        public int Zip { get; set; }
+        [DataType(DataType.Html)]
+        public string SCUrl { get; set; }
+
 
     }
 }
