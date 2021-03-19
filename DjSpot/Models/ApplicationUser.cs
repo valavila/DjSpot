@@ -37,7 +37,8 @@ namespace DjSpot.Models
 
         [DataType(DataType.PostalCode)]
         public int Zip { get; set; }
-
+        [DataType(DataType.Html)]
+        public string SCUrl { get; set; }
 
 
     }

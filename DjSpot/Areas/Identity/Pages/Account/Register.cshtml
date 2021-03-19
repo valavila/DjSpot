@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                
+
                                 <select asp-for="Input.UserType" asp-items="@(Html.GetEnumSelectList<DjSpot.Models.userType>())" class="form-control">
                                     <option selected disabled value="Select">Dj or Customer?:</option>
                                 </select>
@@ -93,6 +93,13 @@
                                 <div class="form-group">
                                     <input asp-for="Input.Bio" class="form-control" />
                                     <span asp-validation-for="Input.Bio" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Embed SoundCloud Link</label>
+                                <div class="form-group">
+                                    <input asp-for="Input.SCUrl" class="form-control" />
+                                    <span asp-validation-for="Input.SCUrl" class="text-danger"></span>
                                 </div>
                             </div>
 

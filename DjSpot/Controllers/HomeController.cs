@@ -98,6 +98,8 @@ namespace DjSpot.Controllers
         {
             //Find Dj from passed in id
             ApplicationUser selectedDj = await _userManager.FindByIdAsync(id);
+
+            //selectedDj.SCUrl.
             
             //Pass Dj to view
             return View(selectedDj);

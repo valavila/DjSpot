@@ -82,6 +82,9 @@ namespace DjSpot.Areas.Identity.Pages.Account
             
             [EnumDataType(typeof(userType))]
             public userType UserType { get; set; } // customer = 0, dj = 1
+
+            [DataType(DataType.Html)]
+            public string SCUrl { get; set; }
         }
     
 
@@ -106,7 +109,8 @@ namespace DjSpot.Areas.Identity.Pages.Account
                     Bio = Input.Bio,
                     //isDj = Input.isDj,
                     //isCustomer = Input.isCustomer,
-                    UserType = Input.UserType
+                    UserType = Input.UserType,
+                    SCUrl = Input.SCUrl
                    
 
                 };
