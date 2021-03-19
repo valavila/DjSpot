@@ -105,11 +105,11 @@ namespace DjSpot.Controllers
             return View(selectedDj);
         }
 
-        public async Task<IActionResult> UpdatePhoneAsync(string phoneNumber)
+        public async Task<IActionResult> UpdateContactAsync(string phoneNumber)
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
 
-            currentUser.PhoneNumber = phoneNumber;
+            
 
             DBcontext.Update(currentUser);
             await DBcontext.SaveChangesAsync();
